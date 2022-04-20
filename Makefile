@@ -5,4 +5,4 @@ lint:
 test:
 	python src/manage.py test
 typecheck:
-	mypy --strict
+	mypy --strict src/
