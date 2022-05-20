@@ -23,8 +23,8 @@ jobs:
     - name: lint
       run: |
         pip install -r requirements.dev.txt
-        make lint
-        make typecheck
+        make lint >> $GITHUB_STEP_SUMMARY
+        make typecheck >> $GITHUB_STEP_SUMMARY
   test:
     runs-on: ubuntu-latest
     steps:
