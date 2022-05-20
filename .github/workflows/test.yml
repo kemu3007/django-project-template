@@ -23,8 +23,10 @@ jobs:
     - name: lint
       run: |
         pip install -r requirements.dev.txt
-        make lint
-        make typecheck
+        echo "# lint" >> $GITHUB_STEP_SUMMARY
+        make lint |& tee -a $GITHUB_STEP_SUMMARY
+        echo "# typecheck" >> $GITHUB_STEP_SUMMARY
+        make typecheck |& tee -a $GITHUB_STEP_SUMMARY
   test:
     runs-on: ubuntu-latest
     steps:
@@ -37,4 +39,4 @@ jobs:
     - name: test
       run: |
         pip install -r requirements.txt
-        make test
+        make test |& tee -a $GITHUB_STEP_SUMMARY
